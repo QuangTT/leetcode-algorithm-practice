@@ -1,0 +1,28 @@
+// contains duplicate
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+class Solution {
+public: 
+    bool containsDuplicate(vector<int>& nums) {
+        bool founded = false;
+        sort(nums.begin(), nums.end());
+        for (int i=0; i<nums.size()-1; i++) if (nums[i] == nums[i+1]) {
+            founded = true;
+            break;
+        }
+        return founded;
+    }
+};
+
+int main() {
+    vector<int> nums = {1,2,3,1};
+    Solution sol;
+    if (sol.containsDuplicate(nums)) cout << "yes";
+    else cout << "no";
+
+    return 0;
+}
